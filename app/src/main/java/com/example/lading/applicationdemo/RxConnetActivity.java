@@ -38,7 +38,7 @@ public class RxConnetActivity extends AppCompatActivity implements View.OnClickL
 
         bntNormol.setText("connect模式");
 
-        mEdit.setText("Observable发送事件1-6，两个观察者同时观察这个Observable \n要求：每发出一个事件，观察者A和观察者都会收到，而不是先把所有的时间发送A,然后再发送给B  \n\n" );
+        mEdit.setText("Observable发送事件1-6，两个观察者同时观察这个Observable \n要求：每发出一个事件，观察者A和观察者B都会收到，而不是先把所有的时间发送A,然后再发送给B  \n\n" );
         mBtn.setOnClickListener(this);
         mText.setOnClickListener(this);
         mEdit.setOnClickListener(this);

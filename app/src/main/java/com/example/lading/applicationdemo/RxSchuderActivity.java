@@ -59,8 +59,9 @@ public class RxSchuderActivity extends AppCompatActivity implements View.OnClick
 static  StringBuffer sb=null;
     private void start() {
         sb=new StringBuffer();
-        Observable.create(new Observable.OnSubscribe<Drawable>(){
-
+        Observable.create(new Observable.OnSubscribe<Drawable>(){  //Observable.OnSubscribe相当于连接观察者的那一根电线
+            //call(Subscriber subscriber)中的subscriber，就是我们自己创建的那个观察者
+            //只有在订阅的时候，才会发生onSubscribe.call(subscriber)，进而才会开始调用onNext(),onComplete()等。
             @Override
             public void call(Subscriber<? super Drawable> subscriber) {
                sb.append(" Observable.create(): 线程: "+Thread.currentThread().getName()+"\n\n");
@@ -70,6 +71,7 @@ static  StringBuffer sb=null;
             }
         }).subscribeOn(Schedulers.io())
           .observeOn(Schedulers.newThread())
+                //使用MAP来完成类型转换
           .map(new Func1<Drawable, ImageView>() {
               @Override
               public ImageView call(Drawable drawable) {

@@ -107,7 +107,7 @@ public class NormalRxActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext("一二三四五");
+                subscriber.onNext("一二三四五1");
                 subscriber.onNext("上山打老虎");
                 subscriber.onNext("老虎一发威");
                 subscriber.onNext("武松就发怵");
